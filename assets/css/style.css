@@ -253,6 +253,25 @@ img {
     justify-content: center;
     padding: 120px 24px 80px;
     z-index: 2;
+    overflow: hidden;
+}
+
+/* 背景图片层 */
+.hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/background.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    opacity: 0.35;
+    filter: blur(0px);
+    transition: filter 0.1s linear, opacity 0.1s linear;
+    will-change: filter, opacity;
 }
 
 .hero-bg-gradient {
@@ -271,6 +290,8 @@ img {
 .hero-content {
     text-align: center;
     max-width: 800px;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-badge {
@@ -713,6 +734,7 @@ img {
     color: var(--text-secondary);
     margin-bottom: 12px;
     line-height: 1.8;
+    text-indent: 2em;
 }
 
 .about-text strong {
@@ -904,6 +926,7 @@ a.info-value {
     font-size: 0.88rem;
     line-height: 1.7;
     margin-top: 4px;
+    text-indent: 2em;
 }
 
 .research-point em {
@@ -1082,6 +1105,7 @@ a.info-value {
     color: var(--text-secondary);
     line-height: 1.7;
     margin-bottom: 16px;
+    text-indent: 2em;
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
@@ -1314,6 +1338,7 @@ a.info-value {
     max-width: 620px;
     margin: 0 auto 36px;
     line-height: 1.8;
+    text-indent: 2em;
 }
 
 /* 核心优势卡片 */
@@ -1356,6 +1381,7 @@ a.info-value {
     font-size: 0.82rem;
     color: var(--text-secondary);
     line-height: 1.7;
+    text-indent: 2em;
 }
 
 .contact-cards {

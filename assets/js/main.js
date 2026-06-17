@@ -395,6 +395,39 @@
     }
 
     // ========================================
+    // 12. Hero 背景滚动虚化
+    // ========================================
+    function initHeroBgBlur() {
+        const bgImage = document.getElementById('heroBgImage');
+        if (!bgImage) return;
+
+        const hero = document.getElementById('hero');
+        let ticking = false;
+
+        function updateBlur() {
+            const heroHeight = hero.offsetHeight;
+            const scrollY = window.scrollY;
+            // 滚动进度 0~1，在 hero 区域内完成虚化
+            const progress = Math.min(scrollY / heroHeight, 1);
+            // 模糊 0 -> 20px，透明度 0.35 -> 0.05
+            const blur = progress * 20;
+            const opacity = 0.35 - progress * 0.30;
+            bgImage.style.filter = 'blur(' + blur + 'px)';
+            bgImage.style.opacity = opacity;
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                requestAnimationFrame(updateBlur);
+                ticking = true;
+            }
+        }, { passive: true });
+
+        updateBlur();
+    }
+
+    // ========================================
     // 初始化
     // ========================================
     function init() {
@@ -409,6 +442,7 @@
         initCursorGlow();
         initMetricBars();
         initGlitch();
+        initHeroBgBlur();
     }
 
     if (document.readyState === 'loading') {
