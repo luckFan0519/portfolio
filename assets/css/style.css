@@ -896,6 +896,38 @@ a.info-value {
     align-self: start;
 }
 
+.research-links {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.research-github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(240, 128, 112, 0.1);
+    color: var(--accent-coral);
+    border: 1px solid rgba(240, 128, 112, 0.3);
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-base);
+}
+
+.research-github-link:hover {
+    background: rgba(240, 128, 112, 0.2);
+    border-color: var(--accent-coral);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(240, 128, 112, 0.25);
+}
+
+.research-github-link svg {
+    flex-shrink: 0;
+}
+
 .metric {
     display: flex;
     flex-direction: column;
@@ -1193,9 +1225,9 @@ a.info-value {
 }
 
 .award-rank-silver {
-    background: rgba(192, 192, 192, 0.15);
-    color: #c0c0c0;
-    border-color: rgba(192, 192, 192, 0.3);
+    background: rgba(240, 128, 112, 0.15);
+    color: var(--accent-coral);
+    border-color: rgba(240, 128, 112, 0.3);
 }
 
 .award-rank-gold {
