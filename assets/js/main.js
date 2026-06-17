@@ -36,11 +36,11 @@
                 this.vy = (Math.random() - 0.5) * 0.4;
                 this.radius = Math.random() * 1.5 + 0.5;
                 this.opacity = Math.random() * 0.5 + 0.2;
-                // 随机颜色：蓝/紫/青
+                // 随机颜色：珊瑚/玫瑰/暖紫
                 const colors = [
-                    'rgba(79, 143, 255, ',
-                    'rgba(139, 92, 246, ',
-                    'rgba(6, 214, 160, '
+                    'rgba(240, 128, 112, ',
+                    'rgba(232, 133, 154, ',
+                    'rgba(184, 125, 179, '
                 ];
                 this.color = colors[Math.floor(Math.random() * colors.length)];
             }
@@ -401,18 +401,25 @@
         const bgImage = document.getElementById('heroBgImage');
         if (!bgImage) return;
 
+        const hero = document.getElementById('hero');
+        const heroHeight = hero.offsetHeight;
         let ticking = false;
+        // 固定模糊值：滚过 hero 后保持不变
+        const FIXED_BLUR = 15;
+        const FIXED_OPACITY = 0.1;
 
         function updateBlur() {
             const scrollY = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            // 滚动进度 0~1，基于整个页面
-            const progress = docHeight > 0 ? Math.min(scrollY / docHeight, 1) : 0;
-            // 模糊 0 -> 25px，透明度 0.35 -> 0.08
-            const blur = progress * 25;
-            const opacity = 0.35 - progress * 0.27;
-            bgImage.style.filter = 'blur(' + blur + 'px)';
-            bgImage.style.opacity = opacity;
+
+            if (scrollY < heroHeight) {
+                // 还在 hero 区域内：背景清晰
+                bgImage.style.filter = 'blur(0px)';
+                bgImage.style.opacity = '0.35';
+            } else {
+                // 已滚过 hero：固定模糊度
+                bgImage.style.filter = 'blur(' + FIXED_BLUR + 'px)';
+                bgImage.style.opacity = FIXED_OPACITY;
+            }
             ticking = false;
         }
 
