@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="姜凡 - 云南大学智能科学与技术本科生，深度学习与医学图像分割研究者">
+    <meta name="keywords" content="姜凡,深度学习,医学图像分割,UNETR++,SLRNet,云南大学,保研">
+    <title>姜凡 | 智能科学与技术 · 深度学习研究者</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+</head>
+<body>
+    <!-- 滚动进度条 -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- 粒子背景 Canvas -->
+    <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+    <!-- 鼠标光晕 -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">JiangFan</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link active">首页</a></li>
+                <li><a href="#about" class="nav-link">关于</a></li>
+                <li><a href="#research" class="nav-link">科研</a></li>
+                <li><a href="#projects" class="nav-link">项目</a></li>
+                <li><a href="#awards" class="nav-link">获奖</a></li>
+                <li><a href="#skills" class="nav-link">技能</a></li>
+                <li><a href="#contact" class="nav-link">联系</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero 区域 -->
+    <section id="hero" class="hero">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>云南大学 · 智能科学与技术</span>
+            </div>
+            <h1 class="hero-name">
+                <span class="name-gradient">姜 凡</span>
+            </h1>
+            <p class="hero-tagline">
+                <span class="terminal-prompt">~/portfolio</span>
+                <span class="typing-text" id="typingText"></span>
+                <span class="cursor-blink">|</span>
+            </p>
+            <p class="hero-description">
+                专注于深度学习与医学图像分割，以第一作者发表 SCI 论文（返修中）<br>
+                综合成绩排名 2/99，获 ICPC 银奖、睿抗全国一等奖
+            </p>
+            <div class="hero-buttons">
+                <a href="#research" class="btn btn-primary">
+                    <span>查看科研成果</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <span>联系我</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="2" data-suffix="/99">0</span>
+                    <span class="stat-label">年级排名</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="2" data-suffix="篇">0</span>
+                    <span class="stat-label">学术论文</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="4" data-suffix="+">0</span>
+                    <span class="stat-label">科研项目</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="5" data-suffix="项">0</span>
+                    <span class="stat-label">国家级获奖</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>向下滚动</span>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">关于我</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-left">
+                    <div class="about-photo-wrapper">
+                        <div class="about-photo-glow"></div>
+                        <div class="about-photo">
+                            <img src="assets/images/avatar.jpg" alt="姜凡" loading="lazy">
+                        </div>
+                        <div class="about-photo-ring"></div>
+                    </div>
+                    <div class="about-university">
+                        <img src="assets/images/yunnan-university.png" alt="云南大学" class="uni-logo">
+                        <div class="uni-info">
+                            <span class="uni-name">云南大学</span>
+                            <span class="uni-major">智能科学与技术 · 本科</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-right">
+                    <h3 class="about-heading">热爱技术，追求卓越</h3>
+                    <p class="about-text">
+                        我是云南大学智能科学与技术专业 2023 级本科生，综合成绩排名 <strong>2/99</strong>。
+                        专注于深度学习领域，尤其在医学图像分割方向以第一作者发表 SCI 论文（返修中），
+                        研究轻量化网络在实时图像去雾中的应用并以第二作者发表 CCF-C 会议论文。
+                    </p>
+                    <p class="about-text">
+                        在科研之外，我积极参与竞赛与项目开发，获 ICPC 银奖、睿抗全国一等奖等多项荣誉，
+                        并主持两项大学生创新创业项目。我渴望在研究生阶段继续深耕人工智能领域，
+                        以技术解决实际问题。
+                    </p>
+                    <div class="about-info-grid">
+                        <div class="info-item">
+                            <span class="info-icon">📧</span>
+                            <div class="info-content">
+                                <span class="info-label">邮箱</span>
+                                <a href="mailto:jiangfan@stu.ynu.edu.cn" class="info-value">jiangfan@stu.ynu.edu.cn</a>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📞</span>
+                            <div class="info-content">
+                                <span class="info-label">电话</span>
+                                <span class="info-value">15352031672</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">🎓</span>
+                            <div class="info-content">
+                                <span class="info-label">在读时间</span>
+                                <span class="info-value">2023.09 — 2027.07</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">📊</span>
+                            <div class="info-content">
+                                <span class="info-label">综合成绩</span>
+                                <span class="info-value">90.14 / 排名 2/99</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 科研经历 -->
+    <section id="research" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">科研经历</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="research-list">
+                <!-- 论文 1 -->
+                <div class="research-card reveal" data-tilt>
+                    <div class="research-header">
+                        <div class="research-tags">
+                            <span class="tag tag-first">第一作者</span>
+                            <span class="tag tag-sci">SCI</span>
+                            <span class="tag tag-revision">返修中</span>
+                        </div>
+                        <div class="research-journal">The Journal of Supercomputing · Springer</div>
+                    </div>
+                    <h3 class="research-title">Improved UNETR++ for 3D Medical Image Segmentation</h3>
+                    <div class="research-content">
+                        <div class="research-details">
+                            <div class="research-point">
+                                <span class="point-icon">💡</span>
+                                <div>
+                                    <strong>模型创新</strong>
+                                    <p>提出 <em>Skip-Conv Refinement（SCR）</em> 模块，在编码器-解码器跳跃连接中嵌入轻量卷积块校准跨级特征分布；设计 <em>Position-Pre-fusion Strategy（PPS）</em>，重排 EPA 中残差融合与位置编码注入顺序，避免位置先验污染语义特征。</p>
+                                </div>
+                            </div>
+                            <div class="research-point">
+                                <span class="point-icon">📈</span>
+                                <div>
+                                    <strong>实验结果</strong>
+                                    <p>在 Synapse 多器官 CT 上 DSC 达 <strong>87.94%</strong>、HD95 降至 <strong>7.51mm</strong>，较 UNETR++ 提升 <strong>0.72%</strong> DSC、降低 <strong>0.72mm</strong> HD95；在 ACDC 心脏 MRI 与 BraTS 脑肿瘤 MRI 上取得一致提升。代码已开源。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="research-metrics">
+                            <div class="metric">
+                                <span class="metric-value">87.94<span class="metric-unit">%</span></span>
+                                <span class="metric-label">Synapse DSC</span>
+                                <div class="metric-bar"><div class="metric-fill" style="width: 87.94%"></div></div>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">+0.72<span class="metric-unit">%</span></span>
+                                <span class="metric-label">DSC 提升</span>
+                                <div class="metric-bar"><div class="metric-fill metric-fill-accent" style="width: 72%"></div></div>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">7.51<span class="metric-unit">mm</span></span>
+                                <span class="metric-label">HD95</span>
+                                <div class="metric-bar"><div class="metric-fill" style="width: 75%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 论文 2 -->
+                <div class="research-card reveal" data-tilt>
+                    <div class="research-header">
+                        <div class="research-tags">
+                            <span class="tag tag-second">第二作者</span>
+                            <span class="tag tag-ccf">CCF-C</span>
+                            <span class="tag tag-sci">SCI Q2</span>
+                        </div>
+                        <div class="research-journal">ICIC 2026</div>
+                    </div>
+                    <h3 class="research-title">SLRNet: Super Lightweight Residual Network for Real-Time Image Dehazing</h3>
+                    <div class="research-content">
+                        <div class="research-details">
+                            <div class="research-point">
+                                <span class="point-icon">🔧</span>
+                                <div>
+                                    <strong>核心架构</strong>
+                                    <p>提出超轻量级残差网络 SLRNet，设计自适应特征单元，采用非对称通道分割策略——半数通道深度可分离卷积变换，其余通道通过全局上下文 Sigmoid 门控自适应重校准，仅对半数通道计算，效率与表征能力兼顾。</p>
+                                </div>
+                            </div>
+                            <div class="research-point">
+                                <span class="point-icon">⚡</span>
+                                <div>
+                                    <strong>性能指标</strong>
+                                    <p>参数量较竞品减少 <strong>10-25 倍</strong>，支持毫秒级实时处理；合成-真实域迁移泛化性强，仅凭合成数据训练即可在真实场景超越计算量大 <strong>10 倍</strong>的对比方法。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="research-metrics">
+                            <div class="metric">
+                                <span class="metric-value">10-25<span class="metric-unit">×</span></span>
+                                <span class="metric-label">参数量减少</span>
+                                <div class="metric-bar"><div class="metric-fill metric-fill-accent" style="width: 90%"></div></div>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">1.44<span class="metric-unit">ms</span></span>
+                                <span class="metric-label">单图处理</span>
+                                <div class="metric-bar"><div class="metric-fill" style="width: 95%"></div></div>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">28.78<span class="metric-unit">dB</span></span>
+                                <span class="metric-label">SOTS PSNR</span>
+                                <div class="metric-bar"><div class="metric-fill" style="width: 85%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 其他成果 -->
+                <div class="research-card research-card-mini reveal">
+                    <div class="research-mini-content">
+                        <span class="point-icon">📜</span>
+                        <div>
+                            <strong>其他学术成果</strong>
+                            <p>计算机软件著作权 2 项</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目经历 -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">项目经历</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid">
+                <!-- 项目 1: 校瞳 -->
+                <div class="project-card reveal" data-tilt>
+                    <div class="project-image">
+                        <img src="assets/images/project-xiaotong.png" alt="校瞳系统" loading="lazy">
+                        <div class="project-overlay">
+                            <span class="project-role">主持人 · 国家级</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">校瞳</h3>
+                        <p class="project-subtitle">极端天气下基于图像融合的校园安防系统</p>
+                        <p class="project-desc">
+                            主导设计多模态图像融合与实时检测系统，引入光辨识感知模块实现光照自适应融合，
+                            结合 Transformer 进行全局-局部协同特征提取，采用高斯差分（DoG）高频信息补偿。
+                            基于 YOLOv8 优化目标检测，引入人体姿态估计构建实时骨架检测子系统。
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">YOLOv8</span>
+                            <span class="tech-tag">Transformer</span>
+                            <span class="tech-tag">AlphaPose</span>
+                            <span class="tech-tag">图像融合</span>
+                            <span class="tech-tag">OpenPose</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目 2: 私域AI -->
+                <div class="project-card reveal" data-tilt>
+                    <div class="project-image">
+                        <img src="assets/images/project-ai.png" alt="私域AI文件管理系统" loading="lazy">
+                        <div class="project-overlay">
+                            <span class="project-role">主持人 · 校级</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">个人私域AI文件管理系统</h3>
+                        <p class="project-subtitle">全栈智能文件管理平台</p>
+                        <p class="project-desc">
+                            主持开发全栈智能文件管理平台，后端采用 Spring Boot 框架，前端使用 Vue 框架，
+                            集成 GPT 大语言模型 API。设计并实现 AI 知识库对话、文件智能导入、知识库个性化创建等模块，
+                            支持自然语言交互的智能文件管理与知识库构建。
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">Vue</span>
+                            <span class="tech-tag">GPT API</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">全栈开发</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目 3: 手舞指尖 -->
+                <div class="project-card reveal" data-tilt>
+                    <div class="project-image">
+                        <img src="assets/images/project-signlanguage.jpg" alt="智能手语学习系统" loading="lazy">
+                        <div class="project-overlay">
+                            <span class="project-role">成员 · 省三等奖</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-title">手舞指尖</h3>
+                        <p class="project-subtitle">智能手语学习系统</p>
+                        <p class="project-desc">
+                            参与开发面向听障人士及手语学习者的智能交互系统，利用计算机视觉与深度学习算法构建手语识别模型，
+                            实现对手语动作的实时捕捉与语义翻译。设计交互式学习模块，
+                            辅助完成从基础词汇到复杂句式的渐进式学习。
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">计算机视觉</span>
+                            <span class="tech-tag">深度学习</span>
+                            <span class="tech-tag">手语识别</span>
+                            <span class="tech-tag">实时翻译</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目 4: 其他项目 -->
+                <div class="project-card project-card-text reveal" data-tilt>
+                    <div class="project-body">
+                        <div class="project-icon-large">🎯</div>
+                        <h3 class="project-title">其他项目成果</h3>
+                        <div class="project-other-list">
+                            <div class="project-other-item">
+                                <span class="other-bullet">▸</span>
+                                <div>
+                                    <strong>基于 YOLO 的扑克牌目标检测与实时状态追踪系统</strong>
+                                    <p>GitHub 获 20 Star</p>
+                                </div>
+                            </div>
+                            <div class="project-other-item">
+                                <span class="other-bullet">▸</span>
+                                <div>
+                                    <strong>京渝图册小程序</strong>
+                                    <p>独立全栈开发，已上线</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 竞赛与获奖 -->
+    <section id="awards" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">竞赛与获奖</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="awards-grid">
+                <div class="awards-column">
+                    <h3 class="awards-column-title">
+                        <span class="awards-icon">🏆</span>
+                        竞赛奖项
+                    </h3>
+                    <div class="awards-list">
+                        <div class="award-item reveal">
+                            <div class="award-rank">全国一等奖</div>
+                            <div class="award-name">睿抗机器人开发者大赛（RAICOM）</div>
+                        </div>
+                        <div class="award-item reveal">
+                            <div class="award-rank award-rank-silver">银奖</div>
+                            <div class="award-name">ICPC 国际大学生程序设计竞赛</div>
+                        </div>
+                        <div class="award-item reveal">
+                            <div class="award-rank">全国二等奖</div>
+                            <div class="award-name">中国高校计算机大赛 - 团体程序设计天梯赛</div>
+                        </div>
+                        <div class="award-item reveal">
+                            <div class="award-rank">全国三等奖</div>
+                            <div class="award-name">蓝桥杯全国软件和信息技术专业人才大赛</div>
+                        </div>
+                        <div class="award-item reveal">
+                            <div class="award-rank">全国三等奖</div>
+                            <div class="award-name">全国大学生计算机挑战赛</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="awards-column">
+                    <h3 class="awards-column-title">
+                        <span class="awards-icon">🎖️</span>
+                        荣誉奖学金
+                    </h3>
+                    <div class="awards-list">
+                        <div class="award-item reveal">
+                            <div class="award-rank award-rank-gold">奖学金</div>
+                            <div class="award-name">近代科学家奖学金</div>
+                        </div>
+                        <div class="award-item reveal">
+                            <div class="award-rank award-rank-gold">奖学金</div>
+                            <div class="award-name">国家励志奖学金</div>
+                        </div>
+                        <div class="award-item reveal">
+                            <div class="award-rank award-rank-gold">奖学金</div>
+                            <div class="award-name">校级一等奖学金</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能 -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">专业技能</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <span class="skill-icon">💻</span>
+                        <h3>编程与工具</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Ollama</span>
+                        <span class="skill-tag">Overleaf</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <span class="skill-icon">🧠</span>
+                        <h3>机器学习与深度学习</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">算法实现</span>
+                        <span class="skill-tag">模型复现</span>
+                        <span class="skill-tag">对比实验</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <span class="skill-icon">📊</span>
+                        <h3>数据与可视化</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Adobe Illustrator</span>
+                        <span class="skill-tag">Origin</span>
+                        <span class="skill-tag">数据分析</span>
+                        <span class="skill-tag">数据可视化</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <span class="skill-icon">📝</span>
+                        <h3>学术写作与管理</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">LaTeX</span>
+                        <span class="skill-tag">Zotero</span>
+                        <span class="skill-tag">学术排版</span>
+                        <span class="skill-tag">文献管理</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <span class="skill-icon">🌐</span>
+                        <h3>语言能力</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">CET-4</span>
+                        <span class="skill-tag">中文（母语）</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <div class="skill-category-header">
+                        <span class="skill-icon">🚀</span>
+                        <h3>其他能力</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">全栈开发</span>
+                        <span class="skill-tag">微信小程序</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Vue</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">联系我</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-text reveal">
+                    <h3 class="contact-heading">期待与您交流</h3>
+                    <p class="contact-desc">
+                        如果您对我的科研工作或项目经历感兴趣，欢迎通过以下方式与我联系。
+                        我非常期待在研究生阶段加入您的课题组，在人工智能领域继续深造。
+                    </p>
+                </div>
+                <div class="contact-cards">
+                    <a href="mailto:jiangfan@stu.ynu.edu.cn" class="contact-card reveal" data-tilt>
+                        <div class="contact-card-icon">📧</div>
+                        <div class="contact-card-info">
+                            <span class="contact-card-label">邮箱</span>
+                            <span class="contact-card-value">jiangfan@stu.ynu.edu.cn</span>
+                        </div>
+                    </a>
+                    <div class="contact-card reveal" data-tilt>
+                        <div class="contact-card-icon">📞</div>
+                        <div class="contact-card-info">
+                            <span class="contact-card-label">电话</span>
+                            <span class="contact-card-value">15352031672</span>
+                        </div>
+                    </div>
+                    <div class="contact-card reveal" data-tilt>
+                        <div class="contact-card-icon">🏫</div>
+                        <div class="contact-card-info">
+                            <span class="contact-card-label">学校</span>
+                            <span class="contact-card-value">云南大学 · 智能科学与技术</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/luckFan0519" target="_blank" rel="noopener" class="contact-card reveal" data-tilt>
+                        <div class="contact-card-icon">🐙</div>
+                        <div class="contact-card-info">
+                            <span class="contact-card-label">GitHub</span>
+                            <span class="contact-card-value">github.com/luckFan0519</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <span class="footer-logo">&lt;JiangFan/&gt;</span>
+                    <p class="footer-text">热爱技术 · 追求卓越 · 期待深造</p>
+                </div>
+                <div class="footer-right">
+                    <a href="https://github.com/luckFan0519" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+                    <p class="footer-copyright">© 2026 姜凡 · Built with ❤️</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
