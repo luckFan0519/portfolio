@@ -251,7 +251,7 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 120px 24px 80px;
+    padding: 100px 24px 60px;
     z-index: 2;
     overflow: hidden;
 }
@@ -279,13 +279,10 @@ img {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background:
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(79, 143, 255, 0.15) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 40% at 80% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(244, 114, 182, 0.06) 0%, transparent 50%);
-    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(10,14,26,0) 0%, rgba(10,14,26,0.7) 70%, var(--bg-primary) 100%);
+    pointer-events: none;
 }
 
 .hero-content {
@@ -295,237 +292,147 @@ img {
     z-index: 2;
 }
 
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 16px;
-    background: var(--bg-glass);
-    border: 1px solid var(--border-color);
-    border-radius: 50px;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.badge-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--accent-cyan);
-    box-shadow: 0 0 8px rgba(6, 214, 160, 0.5);
-    animation: pulse-dot 2s ease-in-out infinite;
-}
-
-@keyframes pulse-dot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.3); }
-}
-
-.hero-name {
-    font-size: clamp(3rem, 8vw, 5.5rem);
-    font-weight: 900;
-    letter-spacing: 0.15em;
-    margin-bottom: 16px;
-    line-height: 1.1;
-}
-
-.name-gradient {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+/* ====== 头像 + 发光环 ====== */
+.hero-avatar-ring {
     position: relative;
     display: inline-block;
+    margin-bottom: 28px;
+    animation: avatar-float 4s ease-in-out infinite;
 }
 
-/* Glitch 效果 */
-.name-gradient::before,
-.name-gradient::after {
-    content: attr(data-text);
+.hero-avatar-ring::before {
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    top: -6px; left: -6px; right: -6px; bottom: -6px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    background: linear-gradient(135deg, #ff6b9d, #c44dff, #4f8fff, #06d6a0) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: ring-rotate 4s linear infinite;
 }
 
-.name-gradient::before {
-    animation: glitch-1 3s infinite linear alternate-reverse;
-    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-    opacity: 0.5;
+@keyframes ring-rotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }
 
-.name-gradient::after {
-    animation: glitch-2 3s infinite linear alternate-reverse;
-    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-    opacity: 0.5;
+@keyframes avatar-float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
 }
 
-@keyframes glitch-1 {
-    0%, 90% { transform: translate(0); }
-    92% { transform: translate(-3px, 1px); }
-    94% { transform: translate(3px, -1px); }
-    96% { transform: translate(-2px, 2px); }
-    98% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
+.hero-avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255,255,255,0.1);
+    box-shadow:
+        0 0 30px rgba(196, 77, 255, 0.25),
+        0 0 60px rgba(79, 143, 255, 0.15),
+        0 4px 20px rgba(0,0,0,0.3);
+    display: block;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-@keyframes glitch-2 {
-    0%, 90% { transform: translate(0); }
-    91% { transform: translate(2px, -1px); }
-    93% { transform: translate(-2px, 1px); }
-    95% { transform: translate(3px, 2px); }
-    97% { transform: translate(-3px, -2px); }
-    100% { transform: translate(0); }
+.hero-avatar:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 0 40px rgba(196, 77, 255, 0.35),
+        0 0 80px rgba(79, 143, 255, 0.2),
+        0 8px 30px rgba(0,0,0,0.4);
 }
 
-.hero-tagline {
-    font-family: var(--font-mono);
-    font-size: 1.1rem;
-    color: var(--accent-cyan);
-    margin-bottom: 20px;
-    min-height: 1.8em;
+/* ====== 名字（衬线字体） ====== */
+.hero-name {
+    font-family: 'Noto Serif SC', 'STSong', 'SimSun', Georgia, serif;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    color: #ffffff;
+    text-shadow:
+        0 2px 10px rgba(0,0,0,0.3),
+        0 0 40px rgba(196, 77, 255, 0.15);
 }
 
-.terminal-prompt {
-    color: var(--accent-blue);
-    margin-right: 8px;
-}
-
-.cursor-blink {
-    animation: blink 1s step-end infinite;
-    color: var(--accent-cyan);
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-.hero-description {
-    font-size: 1.05rem;
+/* ====== 副标题 ====== */
+.hero-subtitle {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 1rem;
     color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 20px;
+    letter-spacing: 0.08em;
+    margin-bottom: 28px;
+    font-weight: 300;
 }
 
+/* ====== 励志语 ====== */
 .hero-quote {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    font-style: italic;
-    max-width: 560px;
-    margin: 0 auto 32px;
-    position: relative;
-    padding: 0 20px;
-    letter-spacing: 0.03em;
+    font-family: 'Noto Serif SC', 'STSong', Georgia, serif;
+    font-size: 1rem;
+    color: rgba(200, 210, 230, 0.85);
+    max-width: 520px;
+    margin: 0 auto 36px;
+    line-height: 1.9;
+    letter-spacing: 0.04em;
     animation: quote-fade-in 2s ease-out both;
-    animation-delay: 2.5s;
+    animation-delay: 1.2s;
 }
 
-.quote-mark {
-    font-size: 1.4rem;
-    color: var(--accent-purple);
-    opacity: 0.4;
-    vertical-align: -4px;
-    margin: 0 2px;
+.quote-author {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.88rem;
+    color: rgba(196, 77, 255, 0.7);
+    letter-spacing: 0.1em;
 }
 
 @keyframes quote-fade-in {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== 图标链接行 ====== */
+.hero-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    animation: icons-fade-in 1s ease-out both;
+    animation-delay: 1.8s;
+}
+
+@keyframes icons-fade-in {
     from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
-.hero-buttons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    margin-bottom: 48px;
-    flex-wrap: wrap;
-}
-
-.btn {
+.hero-icon-link {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 28px;
-    border-radius: var(--radius-md);
-    font-size: 0.95rem;
-    font-weight: 600;
-    font-family: var(--font-sans);
-    cursor: pointer;
-    transition: all var(--transition-base);
-    border: none;
+    justify-content: center;
+    color: var(--text-secondary);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
     text-decoration: none;
 }
 
-.btn-primary {
-    background: var(--gradient-primary);
+.hero-icon-link:hover {
     color: #fff;
-    box-shadow: 0 4px 15px rgba(79, 143, 255, 0.3);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(79, 143, 255, 0.4);
-}
-
-.btn-secondary {
-    background: var(--bg-glass);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.btn-secondary:hover {
-    background: var(--bg-glass-hover);
-    border-color: var(--border-hover);
-    transform: translateY(-2px);
-}
-
-.hero-stats {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-number {
-    display: block;
-    font-size: 1.8rem;
-    font-weight: 800;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-family: var(--font-mono);
-}
-
-.stat-label {
-    display: block;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    margin-top: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.stat-divider {
-    width: 1px;
-    height: 40px;
-    background: var(--border-color);
+    background: rgba(196, 77, 255, 0.15);
+    border-color: rgba(196, 77, 255, 0.4);
+    box-shadow: 0 0 20px rgba(196, 77, 255, 0.2);
+    transform: translateY(-3px);
 }
 
 /* 滚动指示器 */
@@ -1597,20 +1504,22 @@ a.info-value {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .hero-stats {
-        gap: 16px;
-    }
-
-    .stat-divider {
-        display: none;
+    .hero-avatar {
+        width: 100px;
+        height: 100px;
     }
 
     .hero-name {
         letter-spacing: 0.08em;
+        font-size: clamp(2rem, 8vw, 3.5rem);
     }
 
-    .hero-description {
-        font-size: 0.95rem;
+    .hero-quote {
+        font-size: 0.9rem;
+    }
+
+    .hero-icons {
+        gap: 14px;
     }
 
     .section {
@@ -1619,29 +1528,17 @@ a.info-value {
 }
 
 @media (max-width: 480px) {
-    .hero-stats {
-        flex-direction: column;
+    .hero-avatar {
+        width: 85px;
+        height: 85px;
+    }
+
+    .hero-icons {
         gap: 12px;
     }
 
-    .stat-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .stat-number {
-        font-size: 1.4rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .btn {
-        width: 100%;
-        max-width: 280px;
-        justify-content: center;
+    .hero-icon-link {
+        width: 40px;
+        height: 40px;
     }
 }
