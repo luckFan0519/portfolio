@@ -395,15 +395,43 @@
     }
 
     // ========================================
-    // 12. 固定背景 - 取消滚动虚化效果
+    // 12. 固定背景滚动虚化
     // ========================================
     function initHeroBgBlur() {
         const bgImage = document.getElementById('heroBgImage');
         if (!bgImage) return;
 
-        // 不再根据滚动位置添加模糊效果，背景始终保持清晰
-        bgImage.style.filter = 'blur(0px)';
-        bgImage.style.opacity = '0.35';
+        const hero = document.getElementById('hero');
+        const heroHeight = hero.offsetHeight;
+        let ticking = false;
+        // 模糊值：滚过 hero 后保持不变
+        const FIXED_BLUR = 15;
+        // 提高透明度，避免模糊后太暗
+        const FIXED_OPACITY = 0.25;
+
+        function updateBlur() {
+            const scrollY = window.scrollY;
+
+            if (scrollY < heroHeight) {
+                // 还在 hero 区域内：背景清晰
+                bgImage.style.filter = 'blur(0px)';
+                bgImage.style.opacity = '0.45';
+            } else {
+                // 已滚过 hero：固定模糊度
+                bgImage.style.filter = 'blur(' + FIXED_BLUR + 'px)';
+                bgImage.style.opacity = FIXED_OPACITY;
+            }
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                requestAnimationFrame(updateBlur);
+                ticking = true;
+            }
+        }, { passive: true });
+
+        updateBlur();
     }
 
     // ========================================
