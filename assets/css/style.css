@@ -1337,10 +1337,11 @@ a.info-value {
 }
 
 .contact-desc {
-    color: var(--text-secondary);
+    color: #f0e6e2;
     max-width: 620px;
     margin: 0 auto 36px;
-    line-height: 1.8;
+    line-height: 1.9;
+    font-size: 1.05rem;
     text-indent: 2em;
 }
 
