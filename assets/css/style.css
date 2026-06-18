@@ -6,14 +6,14 @@
 :root {
     --bg-primary: #1a1720;
     --bg-secondary: #201c28;
-    --bg-card: rgba(30, 26, 38, 0.92);
-    --bg-card-hover: rgba(38, 34, 48, 0.96);
-    --bg-glass: rgba(255, 255, 255, 0.08);
-    --bg-glass-hover: rgba(255, 255, 255, 0.13);
+    --bg-card: rgba(30, 26, 38, 0.75);
+    --bg-card-hover: rgba(38, 34, 48, 0.88);
+    --bg-glass: rgba(255, 255, 255, 0.06);
+    --bg-glass-hover: rgba(255, 255, 255, 0.1);
 
-    --text-primary: #faf5f2;
-    --text-secondary: #d9ccca;
-    --text-muted: #b0a4a0;
+    --text-primary: #f5ede9;
+    --text-secondary: #c8b8b4;
+    --text-muted: #9a8e8a;
 
     /* 暖色调：珊瑚粉 / 玫瑰 / 暖紫 / 鼠尾草绿 */
     --accent-coral: #f08070;
@@ -290,7 +290,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(ellipse at center, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 70%, rgba(255,255,255,0.25) 100%);
+    background: radial-gradient(ellipse at center, rgba(22,18,32,0) 0%, rgba(22,18,32,0.6) 70%, var(--bg-primary) 100%);
     pointer-events: none;
 }
 
@@ -544,7 +544,7 @@ img {
     grid-template-columns: 280px 1fr;
     gap: 48px;
     align-items: start;
-    background: rgba(22, 18, 32, 0.92);
+    background: rgba(22, 18, 32, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(240, 128, 112, 0.08);
@@ -898,8 +898,8 @@ a.info-value {
 .research-metrics {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 16px;
+    gap: 16px;
+    padding: 20px;
     background: var(--bg-glass);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
@@ -946,25 +946,25 @@ a.info-value {
 
 .metric-value {
     font-family: var(--font-mono);
-    font-size: 1.05rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--accent-blue);
 }
 
 .metric-unit {
-    font-size: 0.65rem;
+    font-size: 0.8rem;
     font-weight: 500;
 }
 
 .metric-label {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
 }
 
 .metric-bar {
-    height: 3px;
+    height: 4px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 2px;
     overflow: hidden;
@@ -1337,11 +1337,10 @@ a.info-value {
 }
 
 .contact-desc {
-    color: var(--accent-coral);
+    color: var(--text-secondary);
     max-width: 620px;
     margin: 0 auto 36px;
-    line-height: 1.9;
-    font-size: 1.05rem;
+    line-height: 1.8;
     text-indent: 2em;
 }
 
