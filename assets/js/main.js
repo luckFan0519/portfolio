@@ -403,6 +403,8 @@
 
         const hero = document.getElementById('hero');
         const heroHeight = hero.offsetHeight;
+        // 额外偏移：多滚一段再开始模糊
+        const BLUR_OFFSET = 300;
         let ticking = false;
         // 模糊值：滚过 hero 后保持不变
         const FIXED_BLUR = 15;
@@ -412,12 +414,12 @@
         function updateBlur() {
             const scrollY = window.scrollY;
 
-            if (scrollY < heroHeight) {
-                // 还在 hero 区域内：背景清晰
+            if (scrollY < heroHeight + BLUR_OFFSET) {
+                // 还没滚够，背景清晰
                 bgImage.style.filter = 'blur(0px)';
                 bgImage.style.opacity = '0.45';
             } else {
-                // 已滚过 hero：固定模糊度
+                // 已滚过 hero+偏移：固定模糊度
                 bgImage.style.filter = 'blur(' + FIXED_BLUR + 'px)';
                 bgImage.style.opacity = FIXED_OPACITY;
             }

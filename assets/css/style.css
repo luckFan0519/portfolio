@@ -1336,12 +1336,50 @@ a.info-value {
     background-clip: text;
 }
 
-.contact-desc {
-    color: var(--text-secondary);
-    max-width: 620px;
+.contact-letter {
+    position: relative;
+    max-width: 680px;
     margin: 0 auto 36px;
-    line-height: 1.8;
+    padding: 28px 32px;
+    background: linear-gradient(135deg, rgba(212, 168, 83, 0.08) 0%, rgba(240, 128, 112, 0.04) 50%, rgba(184, 125, 179, 0.06) 100%);
+    border: 1px solid rgba(212, 168, 83, 0.25);
+    border-radius: 16px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-letter:hover {
+    border-color: rgba(212, 168, 83, 0.5);
+    box-shadow: 0 8px 32px rgba(212, 168, 83, 0.12), 0 0 60px rgba(212, 168, 83, 0.06);
+    transform: translateY(-2px);
+}
+
+.contact-letter-deco {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #D4A853, #f08070, #b87db3, #D4A853);
+    background-size: 200% 100%;
+    animation: letter-shimmer 4s ease infinite;
+}
+
+@keyframes letter-shimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.contact-desc {
+    color: #e3bd7f;
+    font-size: 1.05rem;
+    line-height: 2;
     text-indent: 2em;
+    letter-spacing: 0.03em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* 核心优势卡片 */
