@@ -6,14 +6,14 @@
 :root {
     --bg-primary: #1a1720;
     --bg-secondary: #201c28;
-    --bg-card: rgba(30, 26, 38, 0.75);
-    --bg-card-hover: rgba(38, 34, 48, 0.88);
-    --bg-glass: rgba(255, 255, 255, 0.06);
-    --bg-glass-hover: rgba(255, 255, 255, 0.1);
+    --bg-card: rgba(30, 26, 38, 0.92);
+    --bg-card-hover: rgba(38, 34, 48, 0.96);
+    --bg-glass: rgba(255, 255, 255, 0.08);
+    --bg-glass-hover: rgba(255, 255, 255, 0.13);
 
-    --text-primary: #f5ede9;
-    --text-secondary: #c8b8b4;
-    --text-muted: #9a8e8a;
+    --text-primary: #faf5f2;
+    --text-secondary: #d9ccca;
+    --text-muted: #b0a4a0;
 
     /* 暖色调：珊瑚粉 / 玫瑰 / 暖紫 / 鼠尾草绿 */
     --accent-coral: #f08070;
@@ -544,7 +544,7 @@ img {
     grid-template-columns: 280px 1fr;
     gap: 48px;
     align-items: start;
-    background: rgba(22, 18, 32, 0.75);
+    background: rgba(22, 18, 32, 0.92);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(240, 128, 112, 0.08);
