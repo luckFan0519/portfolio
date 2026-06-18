@@ -716,21 +716,17 @@ a.info-value {
 }
 
 /* --- 科研经历 --- */
-.research-list {
+.research-grid {
     display: flex;
     flex-direction: column;
     gap: 24px;
+}
+
+.research-card {
     background: rgba(22, 18, 32, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(240, 128, 112, 0.08);
-    border-radius: var(--radius-lg);
-    padding: 32px;
-}
-
-.research-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     padding: 32px;
     transition: all var(--transition-base);
@@ -750,15 +746,29 @@ a.info-value {
     transition: opacity var(--transition-base);
 }
 
+.research-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
 .research-card:hover {
-    background: var(--bg-card-hover);
     border-color: var(--border-hover);
     box-shadow: var(--shadow-glow);
-    transform: translateY(-4px);
 }
 
 .research-card:hover::before {
     opacity: 1;
+}
+
+.research-card:hover::after {
+    left: 100%;
 }
 
 .research-header {
