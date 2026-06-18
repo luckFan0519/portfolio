@@ -406,20 +406,19 @@
         let ticking = false;
         // 模糊值：滚过 hero 后保持不变
         const FIXED_BLUR = 15;
-        // 提高透明度，避免模糊后太暗
-        const FIXED_OPACITY = 0.25;
+        const FIXED_OPACITY = 0.4;
 
         function updateBlur() {
             const scrollY = window.scrollY;
 
             if (scrollY < heroHeight) {
-                // 还在 hero 区域内：背景清晰
                 bgImage.style.filter = 'blur(0px)';
                 bgImage.style.opacity = '0.45';
+                bgImage.style.backgroundColor = 'transparent';
             } else {
-                // 已滚过 hero：固定模糊度
-                bgImage.style.filter = 'blur(' + FIXED_BLUR + 'px)';
+                bgImage.style.filter = 'blur(' + FIXED_BLUR + 'px) brightness(1.8)';
                 bgImage.style.opacity = FIXED_OPACITY;
+                bgImage.style.backgroundColor = 'rgba(255,255,255,0.3)';
             }
             ticking = false;
         }
