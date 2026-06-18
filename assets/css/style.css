@@ -280,8 +280,7 @@ img {
     z-index: 0;
     opacity: 0.35;
     filter: blur(0px);
-    transition: filter 0.1s linear, opacity 0.1s linear;
-    will-change: filter, opacity;
+    will-change: auto;
 }
 
 .hero-bg-gradient {
