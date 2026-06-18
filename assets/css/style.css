@@ -1075,6 +1075,26 @@ a.info-value {
     letter-spacing: 0.03em;
 }
 
+.project-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.project-badge {
+    flex-shrink: 0;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.25);
+    border-radius: 20px;
+    padding: 3px 10px;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
 .project-body {
     padding: 20px 24px 24px;
 }
