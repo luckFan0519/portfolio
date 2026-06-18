@@ -898,8 +898,8 @@ a.info-value {
 .research-metrics {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 20px;
+    gap: 12px;
+    padding: 16px;
     background: var(--bg-glass);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
@@ -946,25 +946,25 @@ a.info-value {
 
 .metric-value {
     font-family: var(--font-mono);
-    font-size: 1.4rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--accent-blue);
 }
 
 .metric-unit {
-    font-size: 0.8rem;
+    font-size: 0.65rem;
     font-weight: 500;
 }
 
 .metric-label {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
 }
 
 .metric-bar {
-    height: 4px;
+    height: 3px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 2px;
     overflow: hidden;
@@ -1337,7 +1337,7 @@ a.info-value {
 }
 
 .contact-desc {
-    color: #f0e6e2;
+    color: var(--accent-coral);
     max-width: 620px;
     margin: 0 auto 36px;
     line-height: 1.9;
